@@ -75,7 +75,7 @@ async function _render (string, stringIsHTML = true, opts = {}) {
    };
    // Run puppetteer in temporary directory, which is deleted afterwards
    return WithTempDir(async (tmpdir) => {
-      const browser = await puppeteer.launch({headless: true});
+      const browser = await puppeteer.launch({headless: true,args: ['--no-sandbox']});
       const page = await browser.newPage();
       // Load content
       if (stringIsHTML) {
